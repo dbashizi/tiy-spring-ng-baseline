@@ -8,6 +8,7 @@
 -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 <script src="../static/js/tiy-ng-controller.js"></script>
 <script src="js/tiy-ng-controller.js"></script>
 
@@ -15,13 +16,6 @@
 
 <div style="position: relative; float: left; width: 100%; padding: 20px;">
     <h1>{{greeting}} <span ng-bind="name"></span></h1>
-
-    <p>Greeting: <input type="text" ng-model="greeting"></p>
-    <p>Name : <input type="text" ng-model="name"></p>
-
-    {{name}} is trying to figure things out ... <br/><br/>
-
-    <span ng-if="testVar.somethingThatDoesntExist">{{testVar.sampleContainerVar}}</span><br/><br/>
 
     <input type="button" ng-click="getGames()" value="Refresh Game Data"/>
 
@@ -36,6 +30,32 @@
             <button ng-click="toggleGame(game.id)">toggle</button>
         </li>
     </ul>
+</div>
+
+<div style="position: relative; float: left; width: 100%; padding: 20px;">
+    <h1>Enter new game information</h1>
+    <span>Game name: <input type="text" ng-model="newGame.name"/></span>
+    <span>
+        <select name="gameGenre" ng-model="newGame.genre">
+            <option selected disabled>Genre</option>
+            <option value="adventure">Adventure</option>
+            <option value="rpg">RPG</option>
+            <option value="strategy">Strategy</option>
+            <option value="shooter">Shooter</option>
+        </select>
+    </span>
+    <span>
+        <select name="gamePlatform" ng-model="newGame.platform">
+            <option selected disabled>Platform</option>
+            <option value="pc">PC</option>
+            <option value="ps4">PS4</option>
+            <option value="xbone">XBox One</option>
+            <option value="wiiu">Wii U</option>
+        </select>
+    </span>
+    <span><input type="number" placeholder="Release Year" name="gameYear" ng-model="newGame.releaseYear"/></span>
+    <span>  <input type="button" ng-click="addGame()" value="Create new game"/></span>
+
 </div>
 
 </body>
